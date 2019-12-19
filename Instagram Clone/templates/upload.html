@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Image Upload</title>
+    </head>
+    <body>
+        <h1>Upload an Image!</h1>
+        <div>
+            <form action="/uploadImage" method="post" enctype="multipart/form-data">
+                <input type="file" name="imageToUpload" accept="image/*">
+                <br>
+                <br>
+                <label for="followerVisible">Post to all followers?</label>
+                <input type="radio" onclick="yesnoCheck();" name="followerVisible" checked value=1> Yes </input>
+                <input id = "noCheck" onclick="yesnoCheck();" type="radio" name="followerVisible" value=0> No </input>
+                <select id = "ifNo" style="display:none" name="group">
+                    {% for group in groups %}
+                        <option value = "{{group['owner_username']}}-----%%-----{{group['groupName']}}" > {{group['owner_username']}} : {{group['groupName']}}</option>
+                    {% endfor %}
+
+                </select>
+                <br>
+                <br>
+                <label for="Caption">Image Caption</label>
+                <br>
+                <textarea name="caption" rows="10" cols="30"></textarea>
+                <br>
+                <br>
+                <input type="submit" value="Post Image">
+            </form>
+        </div>
+        {% if message %}
+            {{ message }}
+        {% endif %}
+        <br/>
+        <a href="/home">Go back</a>
+
+        <script>
+        function yesnoCheck() {
+            if (document.getElementById('noCheck').checked) {
+                document.getElementById('ifNo').style.display = 'block';
+            }
+            else document.getElementById('ifNo').style.display = 'none';
+        }
+        </script>
+
+
+    </body>
+</html>
+

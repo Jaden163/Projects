@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FriendGroups &#9977</title>
+</head>
+<body>
+<h3>Friend Group List:</h3> <p>&#9977 &#9977 &#9977 &#9977</p>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+Group Owner: {{groupOwner}}
+<form action="/add_friend_to_group" method="POST">
+    <br> Select a group that you would like to add members to:
+    <br>
+<table>
+    <th>Group Name</th>
+    <th>Options</th>
+
+{% for line in friendgroups %}
+    <tr>
+        <td>{{line.groupName}}</td>
+        <td><input type="radio" name="groupName" value="{{line.groupName}}" required/> Add Members To {{line.groupName}} <p> &#9824 &#9824</p></input>
+	</td>>
+    </tr>
+{% endfor %}
+
+
+
+</table> <br>
+<input type="submit" value="Select">
+    <br><br><br>
+
+    {% if error %}
+        <p class="error"><strong>Sorry.</strong><br> {{error}}</p>
+    {% endif %}
+<a href="/addGroup">Create New Group</a>
+<br>
+    <a href="/home">Go Back Home</a>
+
+</body>
+</html>

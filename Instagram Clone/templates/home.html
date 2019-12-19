@@ -1,0 +1,155 @@
+<html>
+<head>
+</head>
+<a>
+    
+<!--
+    
+<form action="/post" method="POST">
+	<h1>Welcome {{username}}</h1> 
+	<input type="text" name = "blog" placeholder="post" required/> </br>
+	<input type="submit" value = Post />
+</form>
+
+-->
+
+<h1>Welcome {{username}}</h1>
+
+	<a href="/logout">Logout</a>
+	<a href="/upload">Upload Image</a>
+	<a href="/manageFollows">Manage Follows</a>
+	<br>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+	<br>
+
+Your Feed:
+
+<table>
+	<th>Photo ID</th>
+	<th>Poster</th>
+	<th>First Name</th>
+	<th>Last Name</th>
+	<th>Posted Date</th>
+	<th>Photo</th>
+	<th>Caption</th>
+	<th>Tags</th>
+	<th>Tag Request:</th>
+	<th>Liked & Rating</th>
+    <th>Comments</th>
+
+{% for i in range(posts |length ) %}
+	<tr>
+		<td>{{posts[i].photoID}}</td>
+		<td>{{posts[i].photoPoster}}</td>
+		<td>{{photoInfo[i].firstName}}</td>
+		<td>{{photoInfo[i].lastName}}</td>
+		<td> {{posts[i].postingdate}}</td>
+		<td> <img src="{{url_for('static', filename=posts[i].filepath)}}" style="width:250px;height:250px"> </td>
+		<td>{{posts[i].caption}}</td>
+		<td>
+			<ol>
+				{#  {% set selfTagged = [] %} #}
+				{% for person in tagged[i] %}
+				{% if person is not none %}
+					<li>{{person['username'] }}: {{person['firstName'] }} {{person['lastName'] }}</li>
+					<!--if user already in tagged, cant selftag-->
+				{#
+				{% if person['username'] == username %}
+						{% set _ = selfTagged.append(1) %}
+					{%endif%}
+				#}
+
+				{%endif%}
+				{% endfor %}
+			</ol>
+
+			<form action="/tagUser" style="text-align:center;" method="POST">
+				<input type="text" style="text-align:center;" name = "username" placeholder="username" required/> </br>
+				<button name = "tag" type="submit" value = {{posts[i].photoID}} >Tag User</button>
+			</form>
+
+				<p>{{p}}</p>
+			    {% if message and photoID | int == posts[i].photoID | int %}
+					<p style="text-align:center;"> {{ message }} </p>
+				{% endif %}
+
+		</td>
+
+		<td>
+			{% if tagRequests[i] is not none %}
+			<section style="text-align:center;">
+						<p> Someone has tagged you </p>
+							<form action="/acceptTag" method="POST">
+								<button name = 'accept' type="submit" value = {{posts[i].photoID}}>Accept Tag</button>
+							</form>
+
+							<form action="/DeclineTag" method="POST">
+								<button name = 'decline' type="submit" value = {{posts[i].photoID}}>Decline Tag</button>
+							</form>
+			</section>
+			{%endif%}
+			{% if tagMessage and photoID | int == posts[i].photoID | int %}
+			<p>{{tagMessage}}</p>
+			{%endif%}
+		</td>
+
+		<td>
+			<ol>
+				{% for person in liked[i] %}
+				{% if person is not none %}
+					<li>{{person['username'] }} rated {{person['rating'] }}</li>
+				{%endif%}
+				{% endfor %}
+			</ol>
+            <br>
+            {% if not userlike[i] %}
+            <form action="/rate" method="POST">
+                <select name="ratings">
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
+                </select>
+                <button name="submitRating" type="submit" value={{posts[i].photoID}}>Submit Rating</button>
+            </form>
+            {% else %}
+            <form action="/removeRating" method="POST">
+                <button name="removeRating" type="submit" value={{posts[i].photoID}}>Remove Rating</button>
+            </form>
+            {%endif%}
+		</td>
+
+        <td>
+            <ol>
+                {% for comment in comments[i] %}
+                {% if comment is not none %}
+                    <li>On {{comment['commentTime'] }}, {{comment['username'] }} said {{comment['comment'] }}</li>
+                {%endif%}
+                {% endfor %}
+            </ol>
+            <br>
+            <form action="/postComment" style="text-align:center;" method="POST">
+                <input type="text" style="text-align:center;" name = "comment" placeholder="Add a comment..." required/> </br>
+                <button name = "submitComment" type="submit" value = {{posts[i].photoID}} >Post Comment</button>
+            </form>
+        </td>
+
+	</tr>
+{% endfor %}
+</table>
+
+
+<a href="/addGroup">Add Friend Group</a>
+<br>
+	<a href="/friendgroups">Friend Group List</a>
+
+</body>
+
+
+</html>
