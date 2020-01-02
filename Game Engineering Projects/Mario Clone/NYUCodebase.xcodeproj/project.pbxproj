@@ -21,7 +21,7 @@
 		6DEF23C31B96CC2600BCE792 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF23BE1B96CC2600BCE792 /* ShaderProgram.cpp */; };
 		6DEF23C41B96CC2600BCE792 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6DEF23C01B96CC2600BCE792 /* vertex.glsl */; };
 		CF468CA42266569700794C3F /* enemies.png in Resources */ = {isa = PBXBuildFile; fileRef = CF468CA32266569700794C3F /* enemies.png */; };
-		CF468CA62266603200794C3F /* arne_sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = CF468CA52266603200794C3F /* arne_sprites.png */; };
+		CFAA67BD23BD7EAF006308F7 /* arne_sprites.png in Resources */ = {isa = PBXBuildFile; fileRef = CFAA67BC23BD7EAF006308F7 /* arne_sprites.png */; };
 		CFDF75AB2263FAD900FAF20D /* FlareMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CFDF75A92263FAD800FAF20D /* FlareMap.cpp */; };
 		CFDF75B4226420A900FAF20D /* marioClone.txt in Resources */ = {isa = PBXBuildFile; fileRef = CFDF75B2226420A900FAF20D /* marioClone.txt */; };
 		CFDF75B5226420A900FAF20D /* minecraft_Sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = CFDF75B3226420A900FAF20D /* minecraft_Sprite.png */; };
@@ -47,7 +47,7 @@
 		6DEF23BE1B96CC2600BCE792 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
 		6DEF23C01B96CC2600BCE792 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.glsl; sourceTree = "<group>"; };
 		CF468CA32266569700794C3F /* enemies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemies.png; sourceTree = "<group>"; };
-		CF468CA52266603200794C3F /* arne_sprites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = arne_sprites.png; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/arne_sprites.png"; sourceTree = "<group>"; };
+		CFAA67BC23BD7EAF006308F7 /* arne_sprites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arne_sprites.png; sourceTree = "<group>"; };
 		CFDF75A92263FAD800FAF20D /* FlareMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlareMap.cpp; sourceTree = "<group>"; };
 		CFDF75AA2263FAD900FAF20D /* FlareMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlareMap.h; sourceTree = "<group>"; };
 		CFDF75B2226420A900FAF20D /* marioClone.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = marioClone.txt; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 				6DEF23C01B96CC2600BCE792 /* vertex.glsl */,
 				CFDF75AA2263FAD900FAF20D /* FlareMap.h */,
 				CF468CA32266569700794C3F /* enemies.png */,
+				CFAA67BC23BD7EAF006308F7 /* arne_sprites.png */,
 				CFDF75B2226420A900FAF20D /* marioClone.txt */,
-				CF468CA52266603200794C3F /* arne_sprites.png */,
 				CFDF75B3226420A900FAF20D /* minecraft_Sprite.png */,
 				CFDF75A92263FAD800FAF20D /* FlareMap.cpp */,
 				6D5A86B919AE5C710066C1FD /* main.cpp */,
@@ -182,6 +182,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -207,7 +208,7 @@
 				6D5A86BE19AE5C710066C1FD /* Credits.rtf in Resources */,
 				6DEF23C41B96CC2600BCE792 /* vertex.glsl in Resources */,
 				CFDF75B4226420A900FAF20D /* marioClone.txt in Resources */,
-				CF468CA62266603200794C3F /* arne_sprites.png in Resources */,
+				CFAA67BD23BD7EAF006308F7 /* arne_sprites.png in Resources */,
 				6DC7076A1BA7273500225B7D /* vertex_textured.glsl in Resources */,
 				CF468CA42266569700794C3F /* enemies.png in Resources */,
 				CFDF75B5226420A900FAF20D /* minecraft_Sprite.png in Resources */,
